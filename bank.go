@@ -4,7 +4,9 @@
 // https://bsb.auspaynet.com.au/
 package bank
 
-import "errors"
+import (
+	"errors"
+)
 
 var banks = map[string]Branch{}
 
