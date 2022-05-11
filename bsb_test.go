@@ -76,3 +76,80 @@ func TestBSB_digits(t *testing.T) {
 		})
 	}
 }
+
+func TestDate_MarshalJSON(t *testing.T) {
+	tests := []struct {
+		name    string
+		bsb     BSB
+		want    string
+		wantErr bool
+	}{
+		{
+			name: "123-456",
+			bsb:  MustBSB("123-456"),
+			want: "\"123-456\"",
+		},
+		{
+			name: "012-345",
+			bsb:  MustBSB("012-345"),
+			want: "\"012-345\"",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := tt.bsb.MarshalJSON()
+			if (err != nil) != tt.wantErr {
+				t.Errorf("BSB.MarshalJSON() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+			if string(got) != tt.want {
+				t.Errorf("BSB.MarshalJSON() = %v, want %v", string(got), tt.want)
+			}
+		})
+	}
+}
+
+func TestDate_UnmarshalJSON(t *testing.T) {
+	tests := []struct {
+		name    string
+		bsb     string
+		want    BSB
+		wantErr bool
+	}{
+		{
+			name: "123-456",
+			bsb:  "\"123-456\"",
+			want: BSB(123456),
+		},
+		{
+			name: "123456",
+			bsb:  "\"123456\"",
+			want: BSB(123456),
+		},
+		{
+			name:    "string error",
+			bsb:     "\"abc\"",
+			want:    BSB(0),
+			wantErr: true,
+		},
+		{
+			name:    "error",
+			bsb:     "abc",
+			want:    BSB(0),
+			wantErr: true,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+
+			var got BSB
+			err := got.UnmarshalJSON([]byte(tt.bsb))
+			if (err != nil) != tt.wantErr {
+				t.Errorf("BSB.UnmarshalJSON() error = %v, wantErr %v", err, tt.wantErr)
+			}
+			if got != tt.want {
+				t.Errorf("BSB.UnmarshalJSON() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

@@ -1,6 +1,7 @@
 package bank
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"strconv"
@@ -102,4 +103,24 @@ func (b BSB) digits() [6]byte {
 	bsb[4] = byte(int(b) / 10 % 10)
 	bsb[5] = byte(int(b) / 1 % 10)
 	return bsb
+}
+
+// MarshalJSON marshals the BSB number into JSON format.
+func (b BSB) MarshalJSON() ([]byte, error) {
+	return json.Marshal(b.String())
+}
+
+// MarshalJSON unmarshal's JSON into a BSB number.
+func (b *BSB) UnmarshalJSON(data []byte) error {
+	var j string
+	err := json.Unmarshal(data, &j)
+	if err != nil {
+		return err
+	}
+	bsb, err := NewBSB(j)
+	if err != nil {
+		return err
+	}
+	*b = bsb
+	return nil
 }
