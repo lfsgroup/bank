@@ -52,7 +52,7 @@ $ make build
 ```
 This will build a file call `build/bsblookup.zip`.  You can either upload this file directly in the AWS Lambda console or run the following command using aws cli:
 ```sh
-$ aws lambda update-function-code --function-name bsblookup --zip-file fileb://$$PWD/build/bsblookup.zip
+$ aws lambda update-function-code --function-name bsblookup --zip-file fileb://$PWD/build/bsblookup.zip
 ```
 This assumed you created a Lambda function called `bsblookup`.
 
