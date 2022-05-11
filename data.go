@@ -18,6 +18,7 @@ var institutionCSV string
 func loadData() map[BSB]Branch {
 
 	institutionLookup := make(map[string][]Institution)
+	allInstitutions := make([]Institution, 0, 120)
 	bsbLookup := make(map[BSB]Branch)
 
 	csvReader := csv.NewReader(strings.NewReader(institutionCSV))
@@ -30,13 +31,13 @@ func loadData() map[BSB]Branch {
 			log.Printf("loadData data/institution.csv error: %v", err)
 			continue
 		}
-		institutions := institutionLookup[rec[0]]
-		institutions = append(institutions, Institution{
+		institution := Institution{
 			Code:       rec[0],
 			Name:       rec[1],
 			BSBNumbers: rec[2],
-		})
-		institutionLookup[rec[0]] = institutions
+		}
+		institutionLookup[rec[0]] = append(institutionLookup[rec[0]], institution)
+		allInstitutions = append(allInstitutions, institution)
 	}
 
 	csvReader = csv.NewReader(strings.NewReader(bsbCSV))
@@ -54,7 +55,7 @@ func loadData() map[BSB]Branch {
 			log.Printf("loadData data/bsb.csv BSB error: %v", err)
 			continue
 		}
-		bank := findInstitution(bsb, rec[1], institutionLookup[rec[1]])
+		bank := matchInstitution(bsb, rec[1], institutionLookup[rec[1]], allInstitutions)
 		bsbLookup[bsb] = Branch{
 			BSB:      bsb,
 			Name:     rec[2],
@@ -69,13 +70,25 @@ func loadData() map[BSB]Branch {
 	return bsbLookup
 }
 
-func findInstitution(bsb BSB, name string, banks []Institution) Institution {
+func matchInstitution(bsb BSB, name string, subsetBanks []Institution, banks []Institution) Institution {
+	bank := matchBSBInstitution(bsb, subsetBanks)
+	if bank != (Institution{}) {
+		return bank
+	}
+	bank = matchBSBInstitution(bsb, banks)
+	if bank != (Institution{}) {
+		return bank
+	}
+	return Institution{Code: name}
+}
+
+func matchBSBInstitution(bsb BSB, banks []Institution) Institution {
 	for _, bank := range banks {
 		codes := strings.Split(bank.BSBNumbers, ",")
 		for _, code := range codes {
 			codeNum, err := strconv.Atoi(strings.TrimSpace(code))
 			if err != nil {
-				log.Printf("findInstitution data/institution.csv matching BSB error: %v", err)
+				log.Printf("findInstitution data/institution.csv matching bsbs[%q] error: %v", code, err)
 				continue
 			}
 			var bsbNum int
@@ -89,5 +102,5 @@ func findInstitution(bsb BSB, name string, banks []Institution) Institution {
 			}
 		}
 	}
-	return Institution{Code: name}
+	return Institution{}
 }
