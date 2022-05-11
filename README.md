@@ -58,7 +58,11 @@ This assumed you created a Lambda function called `bsblookup`.
 
 ## Bugs
 
-- 
+- Institution matching with Branch
+  - Once it's matched a branch via `bsb.csv` dataset, it then tried to match the corresponding bank via the `institution.csv` dataset.  It currently matches via the institution code, ie "ANZ" or "CBA", but there are mutiple insitutions with the same name.  Instead we should be matching on the BSB number, ie column 3 in in
+
 ## TODO Features
 
-- 
+- Write a scrap cli that you can run periodically, to fetch and update to the latest bsb and institution data.
+
+- Write a cli to look up the bsb numbers.  Usage `$ bsblookp 012-023`.
