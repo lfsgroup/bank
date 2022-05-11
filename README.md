@@ -76,4 +76,4 @@ This assumed you created a Lambda function called `bsblookup`.
   - Current implementation assumes the BSB number matches the value in the data file exactly.
   - Implement a BSB data type, that will accept a number of different formats for the bsb number, ie `123-456` and `123456`.
 
-- Write a cli to look up the bsb numbers.  Usage `$ bsblookp 012-023`.
+- Write a cli to look up the bsb numbers.  Usage `$ bsblookup 012-023`.
