@@ -1,6 +1,6 @@
 # Bank
 
-A Go program to look up Australian BSB numbers.  The data is download from [AusPayNet](https://bsb.auspaynet.com.au/), and statically stored in the app.
+A Go program to look up Australian BSB numbers.  The data is downloaded from [AusPayNet](https://bsb.auspaynet.com.au/), and statically stored in the app.
 
 ## Usage
 
@@ -59,7 +59,7 @@ This assumed you created a Lambda function called `bsblookup`.
 ## Bugs / Issues
 
 - Institution matching with Branch
-  - Once it's matched a branch via `bsb.csv` dataset, it then tried to match the corresponding bank via the `institution.csv` dataset.  It currently matches via the institution code, ie "ANZ" or "CBA", but there are mutiple insitutions with the same name.  Instead we should be matching on the BSB number, ie column 3 in in
+  - Once it's matched a branch via `bsb.csv` dataset, it then tried to match the corresponding bank via the `institution.csv` dataset.  It currently matches via the institution code, ie "ANZ" or "CBA", but there are mutiple insitutions with the same name.  Instead we should be matching on the BSB number, ie column 3 in `institution.csv`.
 
 - Loading data will panic
   - The current `loadData` function runs at startup, but will `panic`, if an error occurs.
