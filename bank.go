@@ -17,7 +17,7 @@ type Institution struct {
 }
 
 type Branch struct {
-	BSB      string      `json:"bsb,omitempty"`
+	BSB      BSB         `json:"bsb,omitempty"`
 	Name     string      `json:"name,omitempty"`
 	Bank     Institution `json:"bank,omitempty"`
 	Address  string      `json:"address,omitempty"`

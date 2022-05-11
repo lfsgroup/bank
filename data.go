@@ -26,7 +26,8 @@ func loadData() map[string]Branch {
 			break
 		}
 		if err != nil {
-			log.Fatal(err) // TODO: fix this
+			log.Printf("loadData data/institution.csv error: %v", err)
+			continue
 		}
 		institutionLookup[rec[0]] = Institution{
 			Code:       rec[0],
@@ -42,10 +43,16 @@ func loadData() map[string]Branch {
 			break
 		}
 		if err != nil {
-			log.Fatal(err) // TODO: fix this
+			log.Printf("loadData data/bsb.csv error: %v", err)
+			continue
+		}
+		bsb, err := NewBSB(rec[0])
+		if err != nil {
+			log.Printf("loadData data/bsb.csv BSB error: %v", err)
+			continue
 		}
 		bsbLookup[rec[0]] = Branch{
-			BSB:      rec[0],
+			BSB:      bsb,
 			Name:     rec[2],
 			Bank:     institutionLookup[rec[1]],
 			Address:  rec[3],
