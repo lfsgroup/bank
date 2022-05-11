@@ -15,10 +15,10 @@ Then just import ...
 ```go
 import "github.com/timwmillard/bank"
 ```
-and call the `LookupBSB` function ...
+and call the `bank.LookupBSB` function ...
 
 ```go
-branch := bank.Lookup("012-023")
+branch := bank.LookupBSB("012-023")
 fmt.Println("Bank name for 012-023 is", branch.Bank.Name)
 ```
 
