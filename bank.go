@@ -20,6 +20,7 @@ type Branch struct {
 	BSB      BSB         `json:"bsb,omitempty"`
 	Name     string      `json:"name,omitempty"`
 	Bank     Institution `json:"bank,omitempty"`
+	BankCode string      `json:"bank_code,omitempty"`
 	Address  string      `json:"address,omitempty"`
 	Suburb   string      `json:"suburb,omitempty"`
 	State    string      `json:"state,omitempty"`

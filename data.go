@@ -60,6 +60,7 @@ func loadData() map[BSB]Branch {
 			BSB:      bsb,
 			Name:     rec[2],
 			Bank:     bank,
+			BankCode: rec[1],
 			Address:  rec[3],
 			Suburb:   rec[4],
 			State:    rec[5],
