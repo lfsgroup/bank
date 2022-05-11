@@ -64,4 +64,3 @@ This assumed you created a Lambda function called `bsblookup`.
 ## TODO Features
 
 - Write a scrap cli that you can run periodically, to fetch and update to the latest bsb and institution data.
-- Write a cli to look up the bsb numbers.  Usage `$ bsblookup 012-023`.
