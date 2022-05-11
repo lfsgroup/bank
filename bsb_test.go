@@ -2,6 +2,7 @@ package bank
 
 import (
 	"reflect"
+	"strconv"
 	"testing"
 )
 
@@ -149,6 +150,34 @@ func TestDate_UnmarshalJSON(t *testing.T) {
 			}
 			if got != tt.want {
 				t.Errorf("BSB.UnmarshalJSON() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_intToBSB(t *testing.T) {
+	tests := []struct {
+		bsb     int
+		want    BSB
+		wantErr bool
+	}{
+		{123456, BSB(123456), false},
+		{12345, BSB(12345), false},
+		{999999, BSB(999999), false},
+		{1000000, BSB(0), true},
+		{0, BSB(0), true},
+		{-1, BSB(0), true},
+	}
+	for _, tt := range tests {
+		name := strconv.Itoa(tt.bsb)
+		t.Run(name, func(t *testing.T) {
+			got, err := intToBSB(tt.bsb)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("intToBSB() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+			if got != tt.want {
+				t.Errorf("intToBSB() = %v, want %v", got, tt.want)
 			}
 		})
 	}
