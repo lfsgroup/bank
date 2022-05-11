@@ -60,10 +60,7 @@ This assumed you created a Lambda function called `bsblookup`.
 
 - Institution matching with Branch
   - Once it's matched a branch via `bsb.csv` dataset, it then tried to match the corresponding bank via the `institution.csv` dataset.  It currently matches via the institution code, ie "ANZ" or "CBA", but there are mutiple insitutions with the same name.  Instead we should be matching on the BSB number, ie column 3 in `institution.csv`.
-
-- Loading data will panic
-  - The current `loadData` function runs at startup, but will `panic`, if an error occurs.
-  - Should handle the error more gracefully.
+  - **Note:** this is nearly fix, just a few small issues.
 
 - Write tests
    - Need to write some tests for the loading and parsing of the data.
@@ -71,9 +68,4 @@ This assumed you created a Lambda function called `bsblookup`.
 ## TODO Features
 
 - Write a scrap cli that you can run periodically, to fetch and update to the latest bsb and institution data.
-
-- Better BSB number parser.
-  - Current implementation assumes the BSB number matches the value in the data file exactly.
-  - Implement a BSB data type, that will accept a number of different formats for the bsb number, ie `123-456` and `123456`.
-
 - Write a cli to look up the bsb numbers.  Usage `$ bsblookup 012-023`.
