@@ -1,4 +1,8 @@
 .DS_Store
 /build
+
 /bankd
 /cmd/bankd/bankd
+
+/bsblookup
+/cmd/bsblookup/bsblookup
