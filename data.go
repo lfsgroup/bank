@@ -86,7 +86,8 @@ func matchBSBInstitution(bsb BSB, banks []Institution) Institution {
 	for _, bank := range banks {
 		codes := strings.Split(bank.BSBNumbers, ",")
 		for _, code := range codes {
-			codeNum, err := strconv.Atoi(strings.TrimSpace(code))
+			code = strings.TrimSpace(code)
+			codeNum, err := strconv.Atoi(code)
 			if err != nil {
 				log.Printf("findInstitution data/institution.csv matching bsbs[%q] error: %v", code, err)
 				continue
