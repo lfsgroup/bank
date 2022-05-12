@@ -8,7 +8,7 @@ import (
 	"errors"
 )
 
-var banks = map[BSB]Branch{}
+var banks map[BSB]Branch
 
 type Institution struct {
 	Code       string `json:"code,omitempty"`
