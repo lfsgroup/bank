@@ -4,8 +4,24 @@ A Go program to look up Australian BSB numbers.  The data is downloaded from [Au
 
 ## Usage
 
+### CLI
+Install the `bsblookup` cli, to use it as a command.
+```sh
+$ go install github.com/timwmillard/bank/cmd/bsblookup@latest
+```
+
+Then run from the command line prompt:
+```sh
+$ bsblookup 012-023
+BSB_NUMBER="012-023"
+BANK_CODE="ANZ"
+BANK_NAME="Australia & New Zealand Banking Group Limited"
+BRANCH_NAME="ANZ Wealth Australia Limited"
+BRANCH_ADDRESS="347 Kent Street Sydney NSW 2000"
+```
+
 ### Go package
-You can import `bank` as a Go package into an existing project and use as Go code.
+You can import `bank` as a Go package, and use in an existing Go project.
 
 ```sh
 $ go get -u github.com/timwmillard/bank
