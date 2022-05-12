@@ -8,7 +8,7 @@ import (
 	"errors"
 )
 
-var banks map[BSB]Branch
+var banks data
 
 type Institution struct {
 	Code       string `json:"code,omitempty"`
@@ -32,11 +32,17 @@ func init() {
 }
 
 func LookupBSB(bsb string) (Branch, error) {
+	return banks.LookupBSB(bsb)
+}
+
+type data map[BSB]Branch
+
+func (d data) LookupBSB(bsb string) (Branch, error) {
 	bsbNum, err := NewBSB(bsb)
 	if err != nil {
 		return Branch{}, err
 	}
-	branch, ok := banks[bsbNum]
+	branch, ok := d[bsbNum]
 	if !ok {
 		return Branch{}, errors.New("branch not found")
 	}
