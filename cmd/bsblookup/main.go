@@ -19,7 +19,7 @@ func main() {
 		os.Exit(1)
 	}
 	fmt.Printf("BSB_NUMBER=%q\n", branch.BSB.String())
-	fmt.Printf("BRANK_CODE=%q\n", branch.Bank.Code)
+	fmt.Printf("BANK_CODE=%q\n", branch.Bank.Code)
 	fmt.Printf("BANK_NAME=%q\n", branch.Bank.Name)
 	fmt.Printf("BRANCH_NAME=%q\n", branch.Name)
 	fmt.Printf("BRANCH_ADDRESS=%q\n", branch.Address+" "+branch.Suburb+" "+branch.State+" "+branch.Postcode)
