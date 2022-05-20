@@ -31,7 +31,7 @@ func main() {
 	}
 }
 
-// Lookup a
+// LookupBSB finds a branch via BSB number.
 func LookupBSB(wr http.ResponseWriter, req *http.Request) {
 	bsb := mux.Vars(req)["bsb"]
 
