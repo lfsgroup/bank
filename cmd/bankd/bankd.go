@@ -7,7 +7,7 @@ import (
 	"os"
 
 	"github.com/gorilla/mux"
-	"github.com/timwmillard/bank"
+	"github.com/lfsgroup/bank"
 )
 
 var port = "9200"

@@ -5,7 +5,7 @@ import (
 	"log"
 
 	"github.com/aws/aws-lambda-go/lambda"
-	"github.com/timwmillard/bank"
+	"github.com/lfsgroup/bank"
 )
 
 func LookupBSB(ctx context.Context, bsb string) (bank.Branch, error) {

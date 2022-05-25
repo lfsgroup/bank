@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/timwmillard/bank"
+	"github.com/lfsgroup/bank"
 )
 
 func main() {

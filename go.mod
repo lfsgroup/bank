@@ -1,4 +1,4 @@
-module github.com/timwmillard/bank
+module github.com/lfsgroup/bank
 
 go 1.18
 
