@@ -18,7 +18,7 @@ build: build/$(EXEC).zip ## Build zip file for AWS Lambda.
 build/$(EXEC).zip: build/$(EXEC)
 	zip -j build/$(EXEC).zip build/$(EXEC)
 
-deploy: build ## Deploy to AWS Lambda.  AWS_PROFILE=timix make deploy
+deploy: build ## Deploy to AWS Lambda.  AWS_PROFILE=<aws-profile> make deploy
 	aws lambda update-function-code --function-name $(EXEC) --zip-file fileb://$$PWD/build/$(EXEC).zip
 
 
