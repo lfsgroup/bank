@@ -7,7 +7,7 @@ A Go program to look up Australian BSB numbers.  The data is downloaded from [Au
 ### CLI
 Install the `bsblookup` cli, to use it as a command.
 ```sh
-$ go install github.com/timwmillard/bank/cmd/bsblookup@latest
+$ go install github.com/lfsgroup/bank/cmd/bsblookup@latest
 ```
 
 Then run from the command line prompt:
@@ -24,12 +24,12 @@ BRANCH_ADDRESS="347 Kent Street Sydney NSW 2000"
 You can import `bank` as a Go package, and use in an existing Go project.
 
 ```sh
-$ go get -u github.com/timwmillard/bank
+$ go get -u github.com/lfsgroup/bank
 ```
 
 Then just import ...
 ```go
-import "github.com/timwmillard/bank"
+import "github.com/lfsgroup/bank"
 ```
 and call the `bank.LookupBSB` function ...
 
