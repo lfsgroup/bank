@@ -37,7 +37,7 @@ func printStandard(branch bank.Branch) {
 	fmt.Printf("BANK_NAME=%q\n", branch.Bank.Name)
 	fmt.Printf("BRANCH_NAME=%q\n", branch.Name)
 	fmt.Printf("BRANCH_ADDRESS=%q\n", branch.Address+" "+branch.Suburb+" "+branch.State+" "+branch.Postcode)
-	fmt.Printf("BRANCH_PAYMENTS=%q\n", branch.Payments.String())
+	fmt.Printf("BRANCH_PAYMENTS=%q\n", branch.PaymentsFlags.String())
 }
 
 func printJSON(branch bank.Branch) {
