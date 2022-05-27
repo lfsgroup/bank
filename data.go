@@ -65,6 +65,7 @@ func loadData() map[BSB]Branch {
 			Suburb:   rec[4],
 			State:    rec[5],
 			Postcode: rec[6],
+			Payments: NewClearingSystems(rec[7]),
 		}
 	}
 
