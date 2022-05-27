@@ -16,6 +16,7 @@ func TestNewClearingSystems(t *testing.T) {
 		{"PEH", PaperClearing | ElectronicClearing | HighValueClearing},
 		{"E", ElectronicClearing},
 		{"EH", ElectronicClearing | HighValueClearing},
+		{"P H", PaperClearing | HighValueClearing},
 		{"P,E,H", PaperClearing | ElectronicClearing | HighValueClearing},
 		{"p,e,h", PaperClearing | ElectronicClearing | HighValueClearing},
 	}
