@@ -32,8 +32,6 @@ const (
 
 func main() {
 
-	var err error
-
 	ftpConn, err := ftpConn(ftpAddr, ftpUsername, ftpPassword, ftpDirectory)
 	if err != nil {
 		log.Printf("FTP connection error: %v\n", err)
@@ -148,7 +146,7 @@ func ftpLatestBSBFile(conn *ftp.ServerConn) (*ftp.Response, string, error) {
 			}
 			reportNum, err := strconv.Atoi(f[1])
 			if err != nil {
-				log.Printf("convert report number %q err: %v", f[1], err)
+				log.Printf("convert report number %q error: %v", f[1], err)
 				continue
 			}
 			if reportNum > latestReportNum {
@@ -193,7 +191,7 @@ func ftpLatestInstitutionFile(conn *ftp.ServerConn) (*ftp.Response, string, erro
 
 			date, err := time.Parse("January 2006", fileName)
 			if err != nil {
-				log.Println("time parse err:", err)
+				log.Println("time parse error:", err)
 				continue
 			}
 			if date.After(latestReportDate) {
