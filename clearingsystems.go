@@ -18,7 +18,7 @@ const (
 
 // NewClearingSystems parses the list of flags into a ClearingSystems type.
 // The ClearingsSystem contains all the avaliable clearing systems.
-// If no flags are providedd a Closed clearing system is returned.
+// If no flags are provided a Closed clearing system is returned.
 func NewClearingSystems(flags string) ClearingSystems {
 	var cs ClearingSystems
 	for _, f := range flags {
