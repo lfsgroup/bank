@@ -57,14 +57,15 @@ func loadData() map[BSB]Branch {
 		}
 		bank := matchInstitution(bsb, rec[1], institutionLookup[rec[1]], allInstitutions)
 		bsbLookup[bsb] = Branch{
-			BSB:      bsb,
-			Name:     rec[2],
-			Bank:     bank,
-			BankCode: rec[1],
-			Address:  rec[3],
-			Suburb:   rec[4],
-			State:    rec[5],
-			Postcode: rec[6],
+			BSB:           bsb,
+			Name:          rec[2],
+			Bank:          bank,
+			BankCode:      rec[1],
+			Address:       rec[3],
+			Suburb:        rec[4],
+			State:         rec[5],
+			Postcode:      rec[6],
+			PaymentsFlags: NewClearingSystems(rec[7]),
 		}
 	}
 
