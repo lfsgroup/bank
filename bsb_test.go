@@ -87,12 +87,12 @@ func TestDate_MarshalJSON(t *testing.T) {
 	}{
 		{
 			name: "123-456",
-			bsb:  MustBSB("123-456"),
+			bsb:  BSB(123456),
 			want: "\"123-456\"",
 		},
 		{
 			name: "012-345",
-			bsb:  MustBSB("012-345"),
+			bsb:  BSB(12345),
 			want: "\"012-345\"",
 		},
 	}

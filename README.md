@@ -76,7 +76,3 @@ This assumed you created a Lambda function called `bsblookup`.
 
 - Write tests
    - Need to write some tests for the loading and parsing of the data.
-
-## TODO Features
-
-- Write a scrap cli that you can run periodically, to fetch and update to the latest bsb and institution data.
