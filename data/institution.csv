@@ -5,7 +5,8 @@ ANZ,Australia & New Zealand Banking Group Limited,1
 ANZ,T&C Town & Country Bank (a division of Australia & New Zealand Banking Group Limited),15
 APO,Australia Post (Money Orders),90
 ASL,Australian Settlements Limited,57
-ALX,Australian Settlements Limited,259
+ALX,Alex Bank Pty Ltd,259
+AVE,Avenue Bank Ltd,890
 BAY,Auswide Bank Ltd,656
 BAE,B&E Ltd trading as Bank of Us,632
 BAL,Bank of America National Association,23
@@ -60,11 +61,11 @@ CMB,"JP Morgan Chase Bank, National Association",21
 JUD,Judo Bank Pty Ltd,725
 KEB,KEB Hana Bank,323
 MBL,Macquarie Bank Limited,18
-MMB,Maitland Mutual Limited,646
+MMB,Maitland Mutual Limited trading as The Mutual Bank,646
 MMP,Unity Bank Limited,882
 BAU,Bank Australia Limited,313
 ICB,"Mega International Commercial Bank Co, Ltd",931
-MEB,Members Equity Bank Pty Limited,944
+MEB,Members Equity Bank Limited (a division of Bank of Queensland Limited),944
 MCB,"Mizuho Bank, Ltd",918
 MPB,Auswide Bank Ltd,645
 MSL,Tyro Payments Limited,969
@@ -85,7 +86,7 @@ RBA,Reserve Bank of Australia,9
 ROK,MyState Bank Limited,655
 SCB,"Standard Chartered Bank, Australia Branch",43
 SNX,Southern Cross Credit Union Ltd,722
-SPL,Split Payments Pty Ltd,840
+SPL,Zepto Payments Pty Ltd,840
 SSB,State Street Bank and Trust Company,913
 SMB,Sumitomo Mitsui Banking Corporation,911
 SCU,Summerland Financial Servces Limited (Trading as Summerland Credit Union),728
@@ -108,4 +109,5 @@ WBC,ADV Advance Bank Australia (a division of Westpac Banking Corp),46
 WBC,CBL Challenge Bank (a division of Westpac Banking Corp),47
 WBC,BML Bank of Melbourne (a division of Westpac Banking Corp),55
 WCU,Warwick Credit Union Ltd,817
-YOU,Cuscal Limited,670
+WSE,Wise Australia Pty Ltd,774
+YOU,86400 Holdings Pty Ltd (Acquired by NAB),670
