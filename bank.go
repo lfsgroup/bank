@@ -10,6 +10,8 @@ import (
 
 var banks data
 
+var ErrBranchNotFound = errors.New("branch not found")
+
 type Institution struct {
 	Code       string `json:"code,omitempty"`
 	Name       string `json:"name,omitempty"`
@@ -17,14 +19,15 @@ type Institution struct {
 }
 
 type Branch struct {
-	BSB      BSB         `json:"bsb,omitempty"`
-	Name     string      `json:"name,omitempty"`
-	Bank     Institution `json:"bank,omitempty"`
-	BankCode string      `json:"bank_code,omitempty"`
-	Address  string      `json:"address,omitempty"`
-	Suburb   string      `json:"suburb,omitempty"`
-	State    string      `json:"state,omitempty"`
-	Postcode string      `json:"postcode,omitempty"`
+	BSB           BSB             `json:"bsb,omitempty"`
+	Name          string          `json:"name,omitempty"`
+	Bank          Institution     `json:"bank,omitempty"`
+	BankCode      string          `json:"bank_code,omitempty"`
+	Address       string          `json:"address,omitempty"`
+	Suburb        string          `json:"suburb,omitempty"`
+	State         string          `json:"state,omitempty"`
+	Postcode      string          `json:"postcode,omitempty"`
+	PaymentsFlags ClearingSystems `json:"payments_flags,omitempty"`
 }
 
 func init() {
@@ -44,7 +47,7 @@ func (d data) LookupBSB(bsb string) (Branch, error) {
 	}
 	branch, ok := d[bsbNum]
 	if !ok {
-		return Branch{}, errors.New("branch not found")
+		return Branch{}, ErrBranchNotFound
 	}
 	return branch, nil
 }
