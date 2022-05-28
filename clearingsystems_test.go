@@ -101,13 +101,18 @@ func TestClearingSystems_UnmarshalJSON(t *testing.T) {
 			want:  ClearingSystems(PaperClearing | ElectronicClearing | HighValueClearing),
 		},
 		{
+			name:  "Closed",
+			flags: "\"\"",
+			want:  ClosedClearingSystem,
+		},
+		{
 			name:    "string error",
 			flags:   "\"abc",
 			want:    ClosedClearingSystem,
 			wantErr: true,
 		},
 		{
-			name:    "Closed",
+			name:    "Empty string",
 			flags:   "",
 			want:    ClosedClearingSystem,
 			wantErr: true,
