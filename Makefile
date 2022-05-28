@@ -8,6 +8,10 @@ help: ## This help.
 	  | sort \
 	  | awk -v width=36 'BEGIN {FS = ":.*?## "} {printf "\033[36m%-*s\033[0m %s\n", width, $$1, $$2}'
 
+## Update data files
+update:
+	go run ./cmd/fetchbsbdata
+
 ## Production
 
 build/$(EXEC): *.go lambda/*.go
