@@ -146,7 +146,6 @@ func ftpLatestBSBFile(conn *ftp.ServerConn) (*ftp.Response, string, error) {
 			if len(f) < 2 {
 				continue
 			}
-			// prevMonth := f[0]
 			reportNum, err := strconv.Atoi(f[1])
 			if err != nil {
 				log.Printf("convert report number %q err: %v", f[1], err)
