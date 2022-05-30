@@ -18,6 +18,7 @@ BANK_CODE="ANZ"
 BANK_NAME="Australia & New Zealand Banking Group Limited"
 BRANCH_NAME="ANZ Wealth Australia Limited"
 BRANCH_ADDRESS="347 Kent Street Sydney NSW 2000"
+BRANCH_PAYMENTS_FLAGS="PEH"
 ```
 
 ### Go package
@@ -34,7 +35,10 @@ import "github.com/lfsgroup/bank"
 and call the `bank.LookupBSB` function ...
 
 ```go
-branch := bank.LookupBSB("012-023")
+branch, err := bank.LookupBSB("012-023")
+if err != nil {
+   log.Fatalln("Lookup BSB error:", err)
+}
 fmt.Println("Bank name for 012-023 is", branch.Bank.Name)
 ```
 
@@ -55,7 +59,7 @@ $ PORT=4000 ./bankd
 
 ```sh
 $ curl http://localhost:4000/bsb/012-023
-{"bsb":"012-023","name":"ANZ Wealth Australia Limited","bank":{"code":"ANZ","name":"T\u0026C Town \u0026 Country Bank (a division of Australia \u0026 New Zealand Banking Group Limited)","bsb_numbers":"15"},"address":"347 Kent Street","suburb":"Sydney","state":"NSW","postcode":"2000"}
+{"bsb":"012-023","name":"ANZ Wealth Australia Limited","bank":{"code":"ANZ","name":"Australia \u0026 New Zealand Banking Group Limited","bsb_numbers":"1"},"bank_code":"ANZ","address":"347 Kent Street","suburb":"Sydney","state":"NSW","postcode":"2000","payments_flags":"PEH"}
 ```
 
 ### AWS Lambda
