@@ -22,6 +22,12 @@ jobs:
 
     - name: Update
       run: make update
+
+    - name: Build
+      run: go build -v ./...
+
+    - name: Test
+      run: go test -v ./...
       
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4.0.3
