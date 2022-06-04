@@ -36,6 +36,5 @@ jobs:
       body: |
         Date updated on ${{ steps.date.outputs.date }} from https://bsb.auspaynet.com.au/
       labels: data update
-      reviewers: timwmillard
-
+      reviewers: timwmillard, luke-single
 
