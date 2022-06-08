@@ -1,7 +1,5 @@
 name: Update Data
 
-on:
-
 jobs:
 
   build:
