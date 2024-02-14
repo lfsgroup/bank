@@ -1,7 +1,2 @@
-<<<<<<< HEAD
 LATEST_FILE_NAME = "BSBDirectoryJan24-334.csv"
 LAST_UPDATED = "2024-02-08T00:12:47Z"
-=======
-LATEST_FILE_NAME = "BSBDirectoryDec23-333.csv"
-LAST_UPDATED = "2024-01-08T00:14:38Z"
->>>>>>> master
