@@ -38,7 +38,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	// BSS file download
+	// BSB file download
 	bsbFile, reportName, err := ftpLatestBSBFile(ftpConn)
 	if err != nil {
 		log.Printf("FTP error: %v\n", err)
