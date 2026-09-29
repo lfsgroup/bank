@@ -1,2 +1,3 @@
-LATEST_FILE_NAME = "KEY TO ABBREVIATIONS AND BSB NUMBERS (July 2024).csv"
-LAST_UPDATED = "2024-08-08T00:15:17Z"
+SOURCE_URL = "https://auspaynetbsbpublic.blob.core.windows.net/bsb-reports/key%20to%20abbreviations%20and%20bsb%20numbers.csv"
+SOURCE_LAST_MODIFIED = "Mon, 31 Aug 2026 15:01:52 GMT"
+LAST_UPDATED = "2026-09-29T13:59:27+10:00"

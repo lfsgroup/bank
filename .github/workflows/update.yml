@@ -20,7 +20,7 @@ jobs:
         
     - name: Get current date
       id: date
-      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      run: echo "date=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
 
     - name: Update
       run: make update
@@ -37,7 +37,7 @@ jobs:
         branch: data/${{ steps.date.outputs.date }}
         title: Data Update ${{ steps.date.outputs.date }}
         body: |
-          Date updated on ${{ steps.date.outputs.date }} from https://bsb.auspaynet.com.au/
+          Date updated on ${{ steps.date.outputs.date }} from https://auspaynet.com.au/BSBLinks
         labels: data update
         reviewers: timwmillard
 
