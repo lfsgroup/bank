@@ -39,5 +39,5 @@ jobs:
         body: |
           Date updated on ${{ steps.date.outputs.date }} from https://auspaynet.com.au/BSBLinks
         labels: data update
-        reviewers: timwmillard
+        reviewers: timwmillard,eveconnolly1234
 
