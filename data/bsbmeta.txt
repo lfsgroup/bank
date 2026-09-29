@@ -1,2 +1,3 @@
-LATEST_FILE_NAME = "BSBDirectoryJul24-340.csv"
-LAST_UPDATED = "2024-08-08T00:15:17Z"
+SOURCE_URL = "https://auspaynetbsbpublic.blob.core.windows.net/bsb-reports/BSBDirectoryFull.csv"
+SOURCE_LAST_MODIFIED = "Mon, 31 Aug 2026 15:01:52 GMT"
+LAST_UPDATED = "2026-09-29T13:59:26+10:00"
